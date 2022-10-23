@@ -1,0 +1,28 @@
+﻿@model List<ProductModel>
+
+@{
+    ViewData["Title"] = "GetOrders";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.Manufacturer</td>
+                <td>@order.Model</td>
+                <td>@order.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Назад", "Index")

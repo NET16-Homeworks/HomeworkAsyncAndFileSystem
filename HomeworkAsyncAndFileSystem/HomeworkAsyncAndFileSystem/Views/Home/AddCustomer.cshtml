@@ -1,0 +1,28 @@
+﻿@model CustomerModel
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(customer => customer.FirstName)
+        <br>
+        @Html.TextBoxFor(customer => customer.FirstName)
+    </p>
+    <p>
+        @Html.DisplayNameFor(customer => customer.LastName)
+        <br>
+        @Html.TextBoxFor(customer => customer.LastName)
+    </p>
+    <p>
+        @Html.DisplayNameFor(customer => customer.Email)
+        <br>
+        @Html.TextBoxFor(customer => customer.Email)
+    </p>
+    <p>
+        @Html.DisplayNameFor(customer => customer.OrderedProductId)
+        <br>
+        @Html.TextBoxFor(customer => customer.OrderedProductId)
+    </p>
+
+    <button type="submit">Добавить</button>
+}
+@Html.ActionLink("Назад", "Index")

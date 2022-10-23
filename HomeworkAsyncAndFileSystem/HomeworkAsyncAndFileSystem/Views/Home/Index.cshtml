@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Покупатели</h2>
+            <ul>
+                <li>
+                    @Html.ActionLink("Показать список покупателей", "GetCustomers")
+                </li>
+                <li>
+                    @Html.ActionLink("Добавить покупателя", "AddCustomer")
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Товары</h2>
+            <ul>
+                <li>
+                    @Html.ActionLink("Показать список товаров", "GetProducts")
+                </li>
+                <li>
+                    @Html.ActionLink("Добавить товар", "AddProduct")
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<li>
+    @Html.ActionLink("Показать список заказов", "GetOrders")
+</li>
