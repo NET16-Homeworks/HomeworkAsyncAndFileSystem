@@ -11,16 +11,18 @@
             <th>Manufacturer</th>
             <th>Model</th>
             <th>Price</th>
+            <th>Удалить</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var order in Model)
+        @foreach (var product in Model)
         {
             <tr>
-                <td>@order.Id</td>
-                <td>@order.Manufacturer</td>
-                <td>@order.Model</td>
-                <td>@order.Price</td>
+                <td>@product.Id</td>
+                <td>@product.Manufacturer</td>
+                <td>@product.Model</td>
+                <td>@product.Price</td>
+                <td>@Html.ActionLink("Удалить", "DeleteItem", "Home", new{index =  Model.IndexOf(product), entity = "product"})</td>
             </tr>
         }
     </tbody>

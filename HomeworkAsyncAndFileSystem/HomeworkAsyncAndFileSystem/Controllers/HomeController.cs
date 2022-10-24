@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Text.Json;
 
 namespace HomeworkAsyncAndFileSystem.Controllers
 {
@@ -135,6 +136,39 @@ namespace HomeworkAsyncAndFileSystem.Controllers
             else
                 return View("InvalidInput", errors);
 
+        }
+
+        public async Task<IActionResult> DeleteItemAsync(int index, string entity)
+        {
+            switch (entity)
+            {
+                case "customer":
+                    {
+                        var customers = await ProductAndCustomerService.GetCustomersAsync();
+                        customers.RemoveAt(index);
+
+                        using (FileStream fs = new FileStream("StaticFiles/Customers.json", FileMode.Truncate))
+                        {
+                            await JsonSerializer.SerializeAsync<List<CustomerModel>>(fs, customers);
+                        }
+
+                        return View("GetCustomers", customers);
+                        break;
+                    }
+                case "product":
+                    {
+                        var products = await ProductAndCustomerService.GetProductsAsync();
+                        products.RemoveAt(index);
+
+                        using (FileStream fs = new FileStream("StaticFiles/Products.json", FileMode.Truncate))
+                        {
+                            await JsonSerializer.SerializeAsync<List<ProductModel>>(fs, products);
+                        }
+                        return View("GetProducts", products);
+                        break;
+                    }
+                default: return RedirectToAction("Index");
+            }
         }
     }
 }
