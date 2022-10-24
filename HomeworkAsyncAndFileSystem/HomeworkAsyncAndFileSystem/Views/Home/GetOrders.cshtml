@@ -1,0 +1,30 @@
+﻿@model List<OrderModel>
+
+@{
+    ViewData["Title"] = "GetConnectedTable";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Order</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Order</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Назад", "Index")

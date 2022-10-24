@@ -1,0 +1,11 @@
+﻿@model List<string>
+
+<h3>Данные не прошли валидацию!</h3>
+
+@foreach (string error in Model)
+{
+    <p>@error</p>
+}
+
+@Html.ActionLink("На главную", "Index")
+

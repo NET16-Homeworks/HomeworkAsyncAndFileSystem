@@ -1,0 +1,29 @@
+﻿@model ProductModel
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(product => product.Id)
+        <br>
+        @Html.TextBoxFor(product => product.Id)
+    </p>
+    <p>
+        @Html.DisplayNameFor(product => product.Manufacturer)
+        <br>
+        @Html.DropDownListFor(product => product.Manufacturer, new SelectList(new List<string>{ "Apple", "Xiaomi", "Samsung" }))
+    </p>
+    <p>
+        @Html.DisplayNameFor(product => product.Model)
+        <br>
+        @Html.TextBoxFor(product => product.Model)
+    </p>
+    <p>
+        @Html.DisplayNameFor(product => product.Price)
+        <br>
+        @Html.TextBoxFor(product => product.Price)
+    </p>
+    
+
+    <button type="submit">Добавить</button>
+}
+@Html.ActionLink("Назад", "Index")

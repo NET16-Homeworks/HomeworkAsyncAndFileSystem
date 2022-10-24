@@ -1,0 +1,30 @@
+﻿@model List<ProductModel>
+
+@{
+    ViewData["Title"] = "GetOrders";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Удалить</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Manufacturer</td>
+                <td>@product.Model</td>
+                <td>@product.Price</td>
+                <td>@Html.ActionLink("Удалить", "DeleteItem", "Home", new{index =  Model.IndexOf(product), entity = "product"})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Назад", "Index")
