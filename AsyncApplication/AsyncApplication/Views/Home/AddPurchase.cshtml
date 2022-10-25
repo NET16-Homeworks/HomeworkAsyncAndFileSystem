@@ -1,0 +1,43 @@
+﻿@model ProductViewModel
+@{
+    if (ViewBag.Info != null)
+    {
+        
+            <p>@ViewBag.Info</p>    
+         
+    } 
+}
+
+<div>Add purchase</div>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(p => p.Name)
+        <br>
+        @Html.TextBoxFor(p => p.Name )
+    </p>
+   
+    <p>
+        @Html.DisplayNameFor(p => p.Cost)
+        <br>
+        @Html.TextBoxFor(p => p.Cost)
+    </p>
+
+     <p>
+        @Html.DisplayName("Email")
+        <br>
+        @Html.DropDownListFor(p => p.CustomerEmail, 
+            new SelectList(AsyncProductService.GetCustomers().Result.Select(q => q.Email)), 
+            "Select customer Email")
+    </p>
+
+     <p>
+        @Html.DisplayNameFor(p => p.Type)
+        <br>
+        @Html.DropDownListFor(p => p.Type, 
+            new SelectList(Enum.GetValues(typeof(ProductType))), 
+            "Select Purchase Type")
+    </p>
+    <button type="submit">Add purchase!</button>
+}

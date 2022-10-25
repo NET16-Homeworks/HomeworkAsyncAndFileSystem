@@ -1,0 +1,41 @@
+﻿@model CustomerViewModel
+@{
+    if (ViewBag.Info != null)
+    {
+        
+            <p>@ViewBag.Info</p>    
+         
+    } 
+}
+
+<div>Add customer</div>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(customer => customer.FirstName)
+        <br>
+        @Html.TextBoxFor(customer => customer.FirstName)
+    </p>
+   
+    <p>
+        @Html.DisplayNameFor(customer => customer.LastName)
+        <br>
+        @Html.TextBoxFor(customer => customer.LastName)
+    </p>
+
+     <p>
+        @Html.DisplayNameFor(customer => customer.Email)
+        <br>
+        @Html.TextBoxFor(customer => customer.Email)
+    </p>
+
+     <p>
+        @Html.DisplayNameFor(customer => customer.Sex)
+        <br>
+        @Html.DropDownListFor(customer => customer.Sex, 
+            new SelectList(Enum.GetValues(typeof(Sex))), 
+            "Select Gender")
+    </p>
+    <button type="submit">Add customer!</button>
+}
