@@ -25,7 +25,7 @@
                                 <td>@Customer.LastName</td>
                                 <td>@Customer.Sex</td>
                                 <td>@Customer.Email</td>
-                                <td><a href='@Url.RouteUrl(new { controller = "Home", action = "_deleteCustomer", CustomerId = Customer.CustomerId})'>Delete this customer</a></td>
+                                <td><a href='@Url.RouteUrl(new { controller = "Home", action = "DeleteCustomer", CustomerId = Customer.CustomerId})'>Delete this customer</a></td>
                             </tr>
             }
 

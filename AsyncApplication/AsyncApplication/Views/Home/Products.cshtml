@@ -29,7 +29,7 @@
                 <td>@Purchase.Cost $</td>
                 <td>@Purchase.PurchasingDate</td>
                 <td>@Purchase.CustomerEmail</td>
-                <td><a href='@Url.RouteUrl(new { controller = "Home", action = "_deleteProduct", ProductId = Purchase.ProductId})'>Delete this product</a></td>
+                <td><a href='@Url.RouteUrl(new { controller = "Home", action = "DeleteProduct", ProductId = Purchase.ProductId})'>Delete this product</a></td>
             </tr>
                  }
             </tbody>

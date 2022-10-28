@@ -14,9 +14,9 @@ namespace AsyncApplication.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            AsyncProductService.GetCustomers();
+            await AsyncProductService.GetCustomers();
             return View();
         }
 
@@ -55,7 +55,7 @@ namespace AsyncApplication.Controllers
         {
             try
             {
-                AsyncProductService.AddCustomer(customer);
+                await AsyncProductService.AddCustomer(customer);
             }
             catch (Exception ex)
             {
@@ -65,9 +65,9 @@ namespace AsyncApplication.Controllers
             return View();
         }
 
-        public async Task<IActionResult> _deleteCustomer(int CustomerId)
+        public async Task<IActionResult> DeleteCustomer(int CustomerId)
         {
-            AsyncProductService.DeleteCustomer(CustomerId);
+            await AsyncProductService.DeleteCustomer(CustomerId);
             return Redirect("Customers");
         }
 
@@ -82,7 +82,7 @@ namespace AsyncApplication.Controllers
         {
             try
             {
-                AsyncProductService.AddProduct(product);
+                await AsyncProductService.AddProduct(product);
             }
             catch (Exception ex)
             {
@@ -92,9 +92,9 @@ namespace AsyncApplication.Controllers
             return View();
         }
 
-        public async Task<IActionResult> _deleteProduct(int ProductId)
+        public async Task<IActionResult> DeleteProduct(int ProductId)
         {
-            AsyncProductService.DeleteProduct(ProductId);
+            await AsyncProductService.DeleteProduct(ProductId);
             return Redirect("Products");
         }
 

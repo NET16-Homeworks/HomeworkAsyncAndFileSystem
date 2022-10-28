@@ -25,8 +25,8 @@ namespace AsyncApplication.Services
 
         public static async Task<List<CombinedViewModel>> GetPurchases()
         {
-            List<CustomerViewModel> customers = GetCustomers().Result;
-            List<ProductViewModel> products = GetProducts().Result;
+            List<CustomerViewModel> customers = await GetCustomers();
+            List<ProductViewModel> products = await GetProducts();
 
             var joinResult = customers.Join(products,
                 c => c.Email,
@@ -41,20 +41,29 @@ namespace AsyncApplication.Services
                     ProductCost = c.Cost,
                     c.PurchasingDate
                 });
+
             List<CombinedViewModel> combined = new List<CombinedViewModel>();
             foreach (var result in joinResult)
             {
-                combined.Add(new CombinedViewModel() { Email = result.Email, FirstName = result.FirstName, LastName = result.LastName, ProductCost = result.ProductCost, ProductName = result.ProductName, ProductType = result.ProductType, PurchasingDate = result.PurchasingDate });
+                combined.Add(new CombinedViewModel()
+                {
+                    Email = result.Email,
+                    FirstName = result.FirstName,
+                    LastName = result.LastName,
+                    ProductCost = result.ProductCost,
+                    ProductName = result.ProductName,
+                    ProductType = result.ProductType,
+                    PurchasingDate = result.PurchasingDate
+                });
             }
-
             return combined;
         }
 
-        public static async void AddCustomer(CustomerViewModel customer)
+        public static async Task AddCustomer(CustomerViewModel customer)
         {
-            if (!GetCustomers().Result.Any(q => q.Email == customer.Email))
+            var customers = await GetCustomers();
+            if (!customers.Any(q => q.Email == customer.Email))
             {
-                List<CustomerViewModel> customers = GetCustomers().Result;
                 customer.CreationDate = DateTime.Now;
                 customer.CustomerId = customer.GetHashCode();
                 customers.Add(customer);
@@ -66,13 +75,13 @@ namespace AsyncApplication.Services
             }
         }
 
-        public static async void AddProduct(ProductViewModel product)
+        public static async Task AddProduct(ProductViewModel product)
         {
-            List<CustomerViewModel> customers = GetCustomers().Result;
+            List<CustomerViewModel> customers = await GetCustomers();
             if (customers.Any(q => q.Email == product.CustomerEmail))
             {
                 CustomerViewModel customer = customers.First(q => q.Email == product.CustomerEmail);
-                List<ProductViewModel> products = GetProducts().Result;
+                List<ProductViewModel> products = await GetProducts();
                 product.PurchasingDate = DateTime.Now;
                 product.ProductId = product.GetHashCode();
                 if (customer.ProductHashCode != null)
@@ -99,9 +108,9 @@ namespace AsyncApplication.Services
             }
         }
 
-        public static async void DeleteCustomer(int Id)
+        public static async Task DeleteCustomer(int Id)
         {
-            List<CustomerViewModel> customers = GetCustomers().Result;
+            List<CustomerViewModel> customers = await GetCustomers();
             if (customers.Any(q => q.CustomerId == Id))
             {
                 var customer = customers.First(q => q.CustomerId == Id);
@@ -110,7 +119,7 @@ namespace AsyncApplication.Services
 
                     foreach (var product in customer.ProductHashCode)
                     {
-                        DeleteProduct(product);
+                        await DeleteProduct(product);
                     }
                 }
                 customers.Remove(customer);
@@ -123,10 +132,10 @@ namespace AsyncApplication.Services
             }
         }
 
-        public static async void DeleteProduct(int Id)
+        public static async Task DeleteProduct(int Id)
         {
-            var customers = GetCustomers().Result;
-            var products = GetProducts().Result;
+            var customers = await GetCustomers();
+            var products = await GetProducts();
             if (products.Any(q => q.ProductId == Id))
             {
                 var product = products.First(q => q.ProductId == Id);
