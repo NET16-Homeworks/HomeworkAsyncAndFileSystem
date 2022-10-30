@@ -1,0 +1,34 @@
+﻿@model AddressModel
+
+@{
+    ViewBag.Title = "AddAddress page";
+}
+<h4>The page for adding new address</h4>
+
+@using (@Html.BeginForm())
+{
+    <p>
+        @Html.NameFor(q => q.City)
+        @Html.DropDownListFor(q => q.City, new SelectList
+            ((new List<string> {"Minsk", "Gomel", "Mogilev", "Grodno", "Wroclaw", "Neptuntown"})))
+    </p>
+
+    <p>
+        @Html.NameFor(q => q.Street)
+        @Html.TextBoxFor(q => q.Street)
+    </p>
+
+    <p>
+        @Html.NameFor(q => q.HouseNumber)
+        @Html.TextBoxFor(q => q.HouseNumber)
+    </p>
+
+    <p>
+        @Html.NameFor(q => q.PostalCode)
+        @Html.TextBoxFor(q => q.PostalCode)
+    </p>
+
+    <button type="submit">Add new user</button>
+}
+
+@Html.ActionLink("Return to address page", "GetAddresses")

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AddressModel>
+
+    @{
+        ViewBag.Title = "GetAddressesAsync field";
+    }
+
+    <h4>Available addresses</h4>
+
+    <table class= "table">
+        <thead>
+            <tr>
+            <th>City</th>
+            <th>Street</th>
+            <th>PostalCode</th>
+            <th>HouseNumber</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var address in Model)
+            {
+                <tr>
+                    <td>@address.City</td>
+                    <td>@address.Street</td>
+                    <td>@address.PostalCode</td>
+                    <td>@address.HouseNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+@Html.ActionLink("To primary page", "Index")
+

@@ -1,0 +1,22 @@
+[
+  {
+    "City": "Minsk",
+    "Street": "Loshickaya",
+    "PostalCode": "220004",
+    "HouseNumber": 29
+  },
+
+  {
+    "City": "Wroclaw",
+    "Street": "Koleeva",
+    "PostalCode": "LT‑00012",
+    "HouseNumber": null
+  },
+
+  {
+    "City": "Neptun",
+    "Street": "Boga Morey",
+    "PostalCode": "1986",
+    "HouseNumber": null
+  }
+,{"City":"Minsk","Street":"fds","PostalCode":"432","HouseNumber":4342},{"City":"Wroclaw","Street":"\u0430\u0432\u044B","PostalCode":"\u0430\u0432\u044B","HouseNumber":25}]

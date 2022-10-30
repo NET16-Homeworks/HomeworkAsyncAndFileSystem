@@ -1,0 +1,38 @@
+﻿@model UserModel
+
+@{
+    ViewBag.Title = "AddUser page";
+}
+<h4>The page for adding new user</h4>
+
+@using (@Html.BeginForm())
+{
+    <p>
+        @Html.DisplayNameFor(q => q.FirstName)
+        @Html.TextBoxFor(q => q.FirstName)
+    </p>
+
+     <p>
+        @Html.NameFor(q => q.LastName)
+        @Html.TextBoxFor(q => q.LastName)
+    </p>
+
+    <p>
+        @Html.NameFor(q => q.Email)
+        @Html.TextBoxFor(q => q.Email)
+    </p>
+
+    <p>
+        @Html.NameFor(q => q.Age)
+        @Html.TextBoxFor(q => q.Age)
+    </p>
+
+    <p>
+        @Html.NameFor(q => q.Town)
+        @Html.TextBoxFor(q => q.Town)
+    </p>
+
+    <button type="submit">Add new user</button>
+}
+
+@Html.ActionLink("Return to user page", "GetUsers")

@@ -1,0 +1,20 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Delete user";
+}
+
+<h4>The page for adding new address</h4>
+
+<span>Please indicate the index of the user in the list you want to delete:</span>
+
+@using (@Html.BeginForm())
+{
+
+@Html.TextBox("index")
+
+<button type="submit">Delete</button>
+}
+
+
+@Html.ActionLink("Return to users' page", "GetUsers")

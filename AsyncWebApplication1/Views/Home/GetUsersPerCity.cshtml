@@ -1,0 +1,31 @@
+﻿@model IEnumerable<UsersCityModel>
+
+@{
+    ViewBag.Title = "GetUsersPerCityAsync";
+}
+
+<table class="table">
+    <thread>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>City</th>
+        </tr>
+     </thread>
+   <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.City</td>
+                </tr>
+            }
+   </tbody>
+</table>
+
+@Html.ActionLink("To users page", "GetUsers")
+<br/>
+@Html.ActionLink("To address page", "GetAddresses")
+<br/>
+@Html.ActionLink("To combined users/address page", "GetUsersPerCity")
