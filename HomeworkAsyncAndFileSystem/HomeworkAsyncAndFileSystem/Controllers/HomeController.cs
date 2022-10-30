@@ -16,15 +16,11 @@ namespace HomeworkAsyncAndFileSystem.Controllers
 
         public IActionResult Index()
         {
-            string directoryName = "JSONs";
-            string usersFileName = "users.json";
-            string addressesFileName = "addresses.json";
-
             var users = Users.GetList();
             var addresses = Addresses.GetUserLinkedList(users);
 
-            JSONGenerator.Generate(directoryName, usersFileName, users);
-            JSONGenerator.Generate(directoryName, addressesFileName, addresses);
+            JSONWriter.Write(Constants.Path.directoryName, Constants.Path.usersFileName, users);
+            JSONWriter.Write(Constants.Path.directoryName, Constants.Path.addressesFileName, addresses);
 
             return View();
         }

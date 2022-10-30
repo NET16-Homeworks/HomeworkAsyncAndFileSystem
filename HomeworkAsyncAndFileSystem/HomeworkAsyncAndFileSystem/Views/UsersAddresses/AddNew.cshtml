@@ -1,0 +1,54 @@
+﻿@model UserAddressViewModel;
+@using HomeworkAsyncAndFileSystem.Enums;
+
+<h4>Add New User</h4>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(user => user.FirstName)
+        <br>
+        @Html.TextBoxFor(user => user.FirstName)
+    </p>
+    <p>
+        @Html.DisplayNameFor(user => user.LastName)
+        <br>
+        @Html.TextBoxFor(user => user.LastName)
+    </p>
+     <p>
+        @Html.DisplayNameFor(user => user.Email)
+        <br>
+        @Html.TextBoxFor(user => user.Email)
+    </p>
+     <p>
+        @Html.DisplayNameFor(user => user.Sex)
+        <br>
+        @foreach (var sex in Enum.GetValues(typeof(Sex)))
+        {
+            <p>
+                @(Html.RadioButtonFor<Sex>(user => user.Sex, (Sex)sex, null))
+                @sex
+            </p>
+        }
+    </p>
+     <p>
+        @Html.DisplayNameFor(user => user.Country)
+        <br>
+        @Html.TextBoxFor(user => user.Country)
+    </p>
+    <p>
+        @Html.DisplayNameFor(user => user.City)
+        <br>
+        @Html.TextBoxFor(user => user.City)
+    </p>
+    <p>
+        @Html.DisplayNameFor(user => user.StreetName)
+        <br>
+        @Html.TextBoxFor(user => user.StreetName)
+    </p>
+    <p>
+        @Html.DisplayNameFor(user => user.StreetAddress)
+        <br>
+        @Html.TextBoxFor(user => user.StreetAddress, new { type = "number", min = "1", step = "1" });
+    </p>
+    <button type="submit">Add New User</button>
+}
