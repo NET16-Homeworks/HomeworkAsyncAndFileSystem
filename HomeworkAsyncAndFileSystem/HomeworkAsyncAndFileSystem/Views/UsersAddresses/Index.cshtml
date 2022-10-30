@@ -1,0 +1,32 @@
+﻿@model List<UsersAddressesViewModel>;
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>FirstName</th>
+				<th>LastName</th>
+				<th>Email</th>
+				<th>Sex</th>
+				<th>Country</th>
+				<th>City</th>
+				<th>StreetName</th>
+				<th>StreetAddress</th>
+				<th>Sex</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var userAddress in @Model){
+				<tr>
+					<td>@userAddress.FirstName</td>
+					<td>@userAddress.LastName</td>
+					<td>@userAddress.Email</td>
+					<td>@userAddress.Sex</td>
+					<td>@userAddress.Country</td>
+					<td>@userAddress.City</td>
+					<td>@userAddress.StreetName</td>
+					<td>@userAddress.StreetAddress</td>
+					<td>@userAddress.Sex</td>
+				</tr>
+			}
+		</tbody>
+	</table>

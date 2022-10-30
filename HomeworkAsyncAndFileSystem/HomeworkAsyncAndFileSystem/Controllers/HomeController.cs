@@ -1,6 +1,7 @@
 ﻿using HomeworkAsyncAndFileSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using HomeworkAsyncAndFileSystem.Helpers;
 
 namespace HomeworkAsyncAndFileSystem.Controllers
 {
@@ -15,11 +16,16 @@ namespace HomeworkAsyncAndFileSystem.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
+            string directoryName = "JSONs";
+            string usersFileName = "users.json";
+            string addressesFileName = "addresses.json";
 
-        public IActionResult Privacy()
-        {
+            var users = Users.GetList();
+            var addresses = Addresses.GetUserLinkedList(users);
+
+            JSONGenerator.Generate(directoryName, usersFileName, users);
+            JSONGenerator.Generate(directoryName, addressesFileName, addresses);
+
             return View();
         }
 

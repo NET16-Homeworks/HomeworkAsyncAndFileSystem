@@ -1,0 +1,22 @@
+﻿@model List<AddressViewModel>;
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Country</th>
+				<th>City</th>
+				<th>StreetName</th>
+				<th>StreetAddress</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var address in @Model){
+				<tr>
+					<td>@address.Country</td>
+					<td>@address.City</td>
+					<td>@address.StreetName</td>
+					<td>@address.StreetAddress</td>
+				</tr>
+			}
+		</tbody>
+	</table>
