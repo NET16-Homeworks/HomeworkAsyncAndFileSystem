@@ -1,0 +1,28 @@
+﻿@model IOrderedEnumerable<ProductModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Weight</th>
+            <th>Price</th>
+            <th>DateOfCreating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            var productNumber = product.Number;
+            <tr>
+                <td>@product.Number</td>
+                <td>@product.Name</td>
+                <td>@product.Weight</td>
+                <td>@product.Price</td>
+                <td>@product.DateOfCreating</td>
+                <td>@Html.ActionLink("Delete this product","DeleteProduct",new{productNumber})</td>
+            </tr>
+        }
+    </tbody>
+</table>

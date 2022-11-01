@@ -1,0 +1,20 @@
+﻿@model ProductModel
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.LabelFor(q => q.Number);
+    @Html.TextBoxFor(q => q.Number);
+    <br />
+    @Html.LabelFor(q => q.Name);
+    @Html.TextBoxFor(q => q.Name);
+    <br />
+    @Html.LabelFor(q => q.Price);
+    @Html.TextBoxFor(q=>q.Price);
+    <br />
+    @Html.LabelFor(q => q.Weight);
+    @Html.TextBoxFor(q=>q.Weight);
+    <br />
+    @Html.LabelFor(q => q.DateOfCreating);
+    @Html.TextBoxFor(q => q.DateOfCreating);
+    <br />
+    <button type="submit">Enter</button>
+}
