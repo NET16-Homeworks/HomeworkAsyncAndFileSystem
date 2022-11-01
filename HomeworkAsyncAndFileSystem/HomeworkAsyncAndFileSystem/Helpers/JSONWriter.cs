@@ -4,27 +4,22 @@ namespace HomeworkAsyncAndFileSystem.Helpers
 {
     public static class JSONWriter
     {
-        public static async void Write<T>(string directoryName, string fileName, T content)
+        public static async Task WriteAsync<T>(string directoryName, string fileName, T content)
         {
             string path = Path.Combine(directoryName, fileName);
-
-            if (!Directory.Exists(directoryName))
-            {
-                Directory.CreateDirectory(directoryName);
-            }
-
-            await Write(path, content);
+            await WriteAsync(path, content);
         }
     
-        public static async Task Write<T>(string path, T content)
+        public static async Task WriteAsync<T>(string path, T content)
         {
-            using (FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate))
+            
+;            using (FileStream fileStream = new FileStream(path, FileMode.Create))
             {
                 var options = new JsonSerializerOptions()
                 {
-                    WriteIndented = true
+                    WriteIndented = true,
                 };
-
+                
                 await JsonSerializer.SerializeAsync(fileStream, content, options);
             }
         } 

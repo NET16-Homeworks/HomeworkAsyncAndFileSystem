@@ -24,7 +24,9 @@
 					<td>@userAddress.City</td>
 					<td>@userAddress.StreetName</td>
 					<td>@userAddress.StreetAddress</td>
-					<td>@userAddress.Sex</td>
+					<td>
+						@Html.ActionLink("Delete User", "Delete", "UsersAddresses", new { id = @userAddress.Id }, null)
+					</td>
 				</tr>
 			}
 		</tbody>
