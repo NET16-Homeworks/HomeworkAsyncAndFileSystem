@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CustomerModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>ProductNumber</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Email</td>
+                <td>@customer.Age</td>
+                <td>@customer.ProductNumber</td>
+                <td>@Html.ActionLink("Delete this customer","DeleteCustomer",new{customer.CustomerId})</td>
+            </tr>
+        }
+    </tbody>
+</table>

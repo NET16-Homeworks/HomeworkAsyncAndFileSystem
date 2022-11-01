@@ -1,0 +1,23 @@
+﻿@model CustomerModel
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.LabelFor(q => q.CustomerId);
+    @Html.TextBoxFor(q => q.CustomerId);
+    <br />
+    @Html.LabelFor(q => q.FirstName); 
+    @Html.TextBoxFor(q => q.FirstName);
+    <br />
+    @Html.LabelFor(q => q.LastName);
+    @Html.TextBoxFor(q => q.LastName);
+    <br />
+    @Html.LabelFor(q => q.Email);
+    @Html.TextBoxFor(q => q.Email);
+    <br />
+    @Html.LabelFor(q => q.Age);
+    @Html.TextBoxFor(q => q.Age);
+    <br />
+    @Html.LabelFor(q => q.ProductNumber);
+    @Html.TextBoxFor(q => q.ProductNumber);
+    <br />
+    <button type="submit">Enter</button>
+}
