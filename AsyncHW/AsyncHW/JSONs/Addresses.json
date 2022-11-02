@@ -1,22 +1,26 @@
 [
   {
+    "Id":  1,
     "City": "Minsk",
     "Street": "Kazintca",
     "House": "120"
   },
   {
+    "Id": 2,
     "City": "Minsk",
     "Street": "Timirazeva",
     "House": "67"
   },
   {
+    "Id": 3,
     "City": "Vitebsk",
     "Street": "Pushkina",
     "House": "37"
   },
   {
+    "Id": 4,
     "City": "Mogilev",
     "Street": "Agrarnai",
-    "House":  "54"
+    "House": "54"
   }
 ]

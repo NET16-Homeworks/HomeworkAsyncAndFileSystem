@@ -4,21 +4,13 @@
     "LastName": "Dobrinskiy",
     "Email": "ilya@",
     "Age": 20,
-    "Address": {
-      "City": "Minsk",
-      "Street": "Kazintca",
-      "House": "120"
-    }
+    "AddressId": 1
   }, 
   {
     "FirstName": "Dima",
     "LastName": "Takarevski",
     "Email": "dima@",
     "Age": 19,
-    "Address": {
-      "City": "Minsk",
-      "Street": "Timirazeva",
-      "House": "67"
-    }
-  },
+    "AddressId": 2
+  }
 ]
