@@ -1,0 +1,21 @@
+﻿@model IEnumerable<AddressViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>City</th>
+            <th>Street</th>
+            <th>House</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.City</td>
+                <td>@item.Street</td>
+                <td>@item.House</td>
+            </tr>
+        }
+    </tbody>
+</table>
