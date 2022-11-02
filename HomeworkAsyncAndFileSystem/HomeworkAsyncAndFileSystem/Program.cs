@@ -1,7 +1,12 @@
+using HomeworkAsyncAndFileSystem.Filters;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<RequestLogFilter>();
+});
 
 var app = builder.Build();
 
