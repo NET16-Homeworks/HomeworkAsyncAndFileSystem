@@ -1,29 +1,27 @@
-﻿using AsyncHW.Models;
+﻿using AsyncHW.Constants;
+using AsyncHW.Models;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace AsyncHW.Services
 {
     public sealed class UserService
     {
-        private List<UserViewModel> _users = new List<UserViewModel>();
-        private List<AddressViewModel> _addresses = new List<AddressViewModel>();
+        //private List<UserViewModel> _users = new List<UserViewModel>();
+        //private List<AddressViewModel> _addresses = new List<AddressViewModel>();
 
         public async Task<List<UserViewModel>> GetUsersAsync()
         {
-            using (var reader = File.OpenRead("JSONs/Users.json"))
+            using (var reader = File.OpenRead(FilePath.UserFilePath))
             {
-                _users = await JsonSerializer.DeserializeAsync<List<UserViewModel>>(reader);
-                return _users;
+                return await JsonSerializer.DeserializeAsync<List<UserViewModel>>(reader);
             }
         }
 
         public async Task<List<AddressViewModel>> GetAddressesAsync()
         {
-            using (var reader = File.OpenRead("JSONs/Addresses.json"))
+            using (var reader = File.OpenRead(FilePath.AddressFilePath))
             {
-                _addresses = await JsonSerializer.DeserializeAsync<List<AddressViewModel>>(reader);
-                return _addresses;
+                return await JsonSerializer.DeserializeAsync<List<AddressViewModel>>(reader);
             }
         }
     }
