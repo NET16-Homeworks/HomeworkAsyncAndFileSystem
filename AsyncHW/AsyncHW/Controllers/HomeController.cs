@@ -1,4 +1,7 @@
-﻿using AsyncHW.Models;
+﻿using AsyncHW.Constants;
+using AsyncHW.Helpers;
+using AsyncHW.Models;
+using AsyncHW.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -13,20 +16,46 @@ namespace AsyncHW.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            await GenerateJsonsFiles();
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
         {
-            return View();
+            var userService = new UserService();
+            var users = await userService.GetUsersAsync();
+            return View(users);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public async Task<IActionResult> GetAddresses()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var userService = new UserService();
+            var addresses = await userService.GetAddressesAsync();
+            return View(addresses);
+        }
+
+        private async Task GenerateJsonsFiles()
+        {   
+            var isJsonUsersEmpty = new FileInfo(FilePath.UserFilePath).Length == 0;
+            var isJsonAddressesEmpty = new FileInfo(FilePath.AddressFilePath).Length == 0;
+
+            if (isJsonAddressesEmpty && isJsonUsersEmpty)
+            {
+                var addressesGenerator = new AddressesGenerator();
+                var usersGenerator = new UsersGenerator();
+
+                addressesGenerator.Generate(20);
+                usersGenerator.Generate(20, addressesGenerator.Addresses);
+
+                await addressesGenerator.Serialize();
+                await usersGenerator.Serialize();
+            }
+
+            return;
         }
     }
 }
