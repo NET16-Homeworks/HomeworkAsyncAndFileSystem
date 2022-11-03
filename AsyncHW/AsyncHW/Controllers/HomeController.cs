@@ -10,6 +10,7 @@ namespace AsyncHW.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private static readonly UserService _userService = new UserService();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -25,17 +26,22 @@ namespace AsyncHW.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var userService = new UserService();
-            var users = await userService.GetUsersAsync();
+            var users = await _userService.GetUsersAsync();
             return View(users);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAddresses()
         {
-            var userService = new UserService();
-            var addresses = await userService.GetAddressesAsync();
+            var addresses = await _userService.GetAddressesAsync();
             return View(addresses);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUsersWithAddresses()
+        {
+            var usersWithAddresses = await _userService.GetUsersWithAddressesAsync();
+            return View(usersWithAddresses);
         }
 
         private async Task GenerateJsonsFiles()
