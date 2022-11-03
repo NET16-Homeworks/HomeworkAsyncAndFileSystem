@@ -3,18 +3,20 @@
 <table class="table">
     <thead>
         <tr>
+            <th>AddressId</th>
             <th>City</th>
             <th>Street</th>
-            <th>House</th>
+            <th>HouseNumber</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
+                <td>@item.AddressId</td>
                 <td>@item.City</td>
                 <td>@item.Street</td>
-                <td>@item.House</td>
+                <td>@item.HouseNumber</td>
             </tr>
         }
     </tbody>
