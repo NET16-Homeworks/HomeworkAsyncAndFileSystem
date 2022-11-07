@@ -45,49 +45,43 @@ namespace AsyncWebApplication1.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddUsers()
+        public IActionResult AddUsers()
         {
-            await Task.Delay(0);
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> AddUsers(UserModel user)
         {
-            UserHelper.AddUsersAsync(user);
-            await Task.Delay(0);
+            await UserHelper.AddUsersAsync(user);
             Console.WriteLine("The new user has been added");
             return RedirectToAction("GetUsers");
         }
 
         [HttpGet]
-        public async Task<IActionResult> AddAddresses()
+        public IActionResult AddAddresses()
         {
-            await Task.Delay(0);
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> AddAddresses(AddressModel address)
         {
-           UserHelper.AddAddressesAsync(address);
-            await Task.Delay(0);
+           await UserHelper.AddAddressesAsync(address);
             Console.WriteLine("The new address has been added");
             return RedirectToAction("GetAddresses");
         }
 
         [HttpGet]
-        public async Task<IActionResult> DeleteUsers()
+        public IActionResult DeleteUsers()
         {
-            await Task.Delay(0);
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> DeleteUsers(int index)
         {
-            UserHelper.DeleteUsersAsync(index);
-            await Task.Delay(0);
+            await UserHelper.DeleteUsersAsync(index);
             return RedirectToAction("GetUsers");
         }
     }

@@ -25,25 +25,23 @@ namespace AsyncWebApplication1.Helpers
         {
             var users = await GetUsersAsync();
             var addresses = await GetAddressesAsync();
-            var usersCity = new List<UsersCityModel>();
 
             var joined = users.Join(addresses, u => u.Town, a => a.City,
                 (u, a) => new { User = u, Address = a });
 
-            foreach (var item in joined)
+            var selected = joined.Select(j => new UsersCityModel()
             {
-                UsersCityModel usm = new UsersCityModel();
-                usm.FirstName = item.User.FirstName;
-                usm.LastName = item.User.LastName;
-                usm.City = item.Address.City;
-                usersCity.Add(usm);
-            }
-            return usersCity;
+                FirstName = j.User.FirstName,
+                LastName = j.User.LastName,
+                City = j.Address.City,
+            }).ToList();
+
+            return selected;
         }
 
         //Реализовать возможность ввода данных для этих сущностей с помощью форм и добавление их в файл.
         
-        public static async void AddUsersAsync(UserModel user)
+        public static async Task AddUsersAsync(UserModel user)
         {
             var users = await GetUsersAsync();
 
@@ -54,13 +52,11 @@ namespace AsyncWebApplication1.Helpers
                 byte[] input = Encoding.Default.GetBytes(text);
                 fs.Seek(-1, SeekOrigin.End);
                 await fs.WriteAsync(input, 0, input.Length);
-                fs.Close();
             }
 
             using (FileStream fs = new FileStream("StaticFiles/Users.json", FileMode.Append))
             {
                 await JsonSerializer.SerializeAsync(fs, user);
-                fs.Close();
             }
 
             string text2 = "]";
@@ -69,13 +65,12 @@ namespace AsyncWebApplication1.Helpers
                 byte[] input = Encoding.Default.GetBytes(text2);
                 fs.Seek(0, SeekOrigin.End);
                 await fs.WriteAsync(input, 0, input.Length);
-                fs.Close();
             }
         }
         //add this with TASK<string>?  //Console.WriteLine($"New object with {user.FirstName}, {user.LastName}, {user.Town}, {user.Email} has been added tot he collection.");
         //using (StreamWriter streamWriter = new StreamWriter("StaticFiles/Users.json", true));            
 
-        public static async void AddAddressesAsync(AddressModel address)
+        public static async Task AddAddressesAsync(AddressModel address)
         {
             var addresses = await GetAddressesAsync();
             addresses.Add(address);
@@ -86,13 +81,11 @@ namespace AsyncWebApplication1.Helpers
                 byte[] input = Encoding.Default.GetBytes(text);
                 fs.Seek(-1, SeekOrigin.End);
                 await fs.WriteAsync(input, 0, input.Length);
-                fs.Close();
             }
 
             using (FileStream fs = new FileStream("StaticFiles/Address.json", FileMode.Append))
             {
                 await JsonSerializer.SerializeAsync(fs, address);
-                fs.Close();
             }
 
             string text2 = "]";
@@ -101,11 +94,10 @@ namespace AsyncWebApplication1.Helpers
                 byte[] input = Encoding.Default.GetBytes(text2);
                 fs.Seek(0, SeekOrigin.End);
                 await fs.WriteAsync(input, 0, input.Length);
-                fs.Close();
             }
         }
 
-        public static async void DeleteUsersAsync(int index)
+        public static async Task DeleteUsersAsync(int index)
         {
             var users = await GetUsersAsync();
             users.RemoveAt(index);
