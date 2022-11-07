@@ -42,12 +42,12 @@ namespace HomeworkAsyncAndFileSystem.Controllers
             if (!System.IO.File.Exists(Path.Combine(directoryName, usersFileName)))
             {
                 var users = Users.GetList();
-                await JSONWriter.WriteAsync(directoryName, usersFileName, users);
+                await JSONWriter.Write(directoryName, usersFileName, users);
 
                 if (!System.IO.File.Exists(Path.Combine(directoryName, addressesFileName)))
                 {
                     var addresses = Addresses.GetUserLinkedList(users);
-                    await JSONWriter.WriteAsync(directoryName, addressesFileName, addresses);
+                    await JSONWriter.Write(directoryName, addressesFileName, addresses);
                 }
             }
         }

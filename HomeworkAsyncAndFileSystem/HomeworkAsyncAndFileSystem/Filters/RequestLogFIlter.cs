@@ -3,20 +3,15 @@ using HomeworkAsyncAndFileSystem.Classes;
 
 namespace HomeworkAsyncAndFileSystem.Filters
 {
-    public class RequestLogFilter : IActionFilter
+    public class RequestLogFilter : IAsyncActionFilter
     {
         UrlLogger _urlLogger = new();
 
-        ActionExecutingContext executingContext;
-
-        public void OnActionExecuted(ActionExecutedContext executedContext)
+        public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            _urlLogger.LogRequestAsync(executedContext, executingContext);
-        }
+            await next();
 
-        public void OnActionExecuting(ActionExecutingContext context)
-        {
-            executingContext = context;
+            await _urlLogger.LogRequest(context);
         }
     }
 }

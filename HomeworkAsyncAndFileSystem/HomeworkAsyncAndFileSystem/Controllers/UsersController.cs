@@ -9,7 +9,7 @@ namespace HomeworkAsyncAndFileSystem.Controllers
         public async Task<IActionResult> Index()
         {
             string path = Constants.Path.GetUsersJSONFullPath();
-            var users = await JSONReader.ReadAsync<List<UserViewModel>>(path);
+            var users = await JSONReader.Read<List<UserViewModel>>(path);
 
             return View(users);
         }

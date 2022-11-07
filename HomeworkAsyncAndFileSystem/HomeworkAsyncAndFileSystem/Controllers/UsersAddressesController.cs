@@ -10,8 +10,8 @@ namespace HomeworkAsyncAndFileSystem.Controllers
         private string addressesJSONPath = Constants.Path.GetAddressesJSONFullPath();
         public async Task<IActionResult> Index()
         {
-            var users = await JSONReader.ReadAsync<List<UserViewModel>>(usersJSONPath);
-            var addresses = await JSONReader.ReadAsync<List<AddressViewModel>>(addressesJSONPath);
+            var users = await JSONReader.Read<List<UserViewModel>>(usersJSONPath);
+            var addresses = await JSONReader.Read<List<AddressViewModel>>(addressesJSONPath);
 
             List<UserAddressViewModel> usersAddressesJoin = users.Join(
                 addresses,
@@ -63,20 +63,20 @@ namespace HomeworkAsyncAndFileSystem.Controllers
             var newUser = UserAddressViewModel.GetUserModel(model, entityId);
             var newAddress = UserAddressViewModel.GetAddressModel(model, entityId);
 
-            var users = await JSONReader.ReadAsync<List<UserViewModel>>(usersJSONPath);
-            var addresses = await JSONReader.ReadAsync<List<AddressViewModel>>(addressesJSONPath);
+            var users = await JSONReader.Read<List<UserViewModel>>(usersJSONPath);
+            var addresses = await JSONReader.Read<List<AddressViewModel>>(addressesJSONPath);
 
             users.Add(newUser);
             addresses.Add(newAddress);
 
-            await JSONWriter.WriteAsync(usersJSONPath, users);
-            await JSONWriter.WriteAsync(addressesJSONPath, addresses);
+            await JSONWriter.Write(usersJSONPath, users);
+            await JSONWriter.Write(addressesJSONPath, addresses);
         }
 
         private async Task DeleteUserFromJSON(Guid id)
         {
-            var users = await JSONReader.ReadAsync<List<UserViewModel>>(usersJSONPath);
-            var addresses = await JSONReader.ReadAsync<List<AddressViewModel>>(addressesJSONPath);
+            var users = await JSONReader.Read<List<UserViewModel>>(usersJSONPath);
+            var addresses = await JSONReader.Read<List<AddressViewModel>>(addressesJSONPath);
 
             var user = users.Find(user => user.Id == id);
             var address = addresses.Find(address => address.UserId == id);
@@ -89,8 +89,8 @@ namespace HomeworkAsyncAndFileSystem.Controllers
             users.Remove(user);
             addresses.Remove(address);
 
-            await JSONWriter.WriteAsync(usersJSONPath, users);
-            await JSONWriter.WriteAsync(addressesJSONPath, addresses);
+            await JSONWriter.Write(usersJSONPath, users);
+            await JSONWriter.Write(addressesJSONPath, addresses);
         }
     } 
 }
