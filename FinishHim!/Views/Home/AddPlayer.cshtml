@@ -1,0 +1,35 @@
+﻿@model PlayerModel
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.LabelFor(q => q.PlayerId)
+    ;
+    @Html.TextBoxFor(q => q.PlayerId)
+    ;
+        <br />
+    @Html.LabelFor(q => q.FirstName)
+    ; 
+    @Html.TextBoxFor(q => q.FirstName)
+    ;
+        <br />
+    @Html.LabelFor(q => q.LastName)
+    ;
+    @Html.TextBoxFor(q => q.LastName)
+    ;
+        <br />
+    @Html.LabelFor(q => q.Email)
+    ;
+    @Html.TextBoxFor(q => q.Email)
+    ;
+        <br />
+    @Html.LabelFor(q => q.Age)
+    ;
+    @Html.TextBoxFor(q => q.Age)
+    ;
+        <br />
+    @Html.LabelFor(q => q.PlayerTeamNumber)
+    ;
+    @Html.TextBoxFor(q => q.PlayerTeamNumber)
+    ;
+        <br />
+        <button type="submit">Enter</button>
+}

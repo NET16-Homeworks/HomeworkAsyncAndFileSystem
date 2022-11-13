@@ -1,0 +1,37 @@
+[
+  {
+    "PlayerId": 1,
+    "FirstName": "Dima",
+    "LastName": "Danone",
+    "Age": 23,
+    "Email": "Danone@mail.ru",
+    "PlayerTeamNumber": 9
+  }
+,
+  {
+    "PlayerId": 3,
+    "FirstName": "Kirill",
+    "LastName": "Kolotygin",
+    "Age": 23,
+    "Email": "d@l",
+    "PlayerTeamNumber": 7
+  }
+,
+  {
+    "PlayerId": 2,
+    "FirstName": "Dmitriy",
+    "LastName": "Danenkov",
+    "Age": 23,
+    "Email": "Dimon.com",
+    "PlayerTeamNumber": 10
+  }
+,
+  {
+    "PlayerId": 4,
+    "FirstName": "Kirills",
+    "LastName": "Kolotygins",
+    "Age": 20,
+    "Email": "d@lss",
+    "PlayerTeamNumber": 1
+  }
+]

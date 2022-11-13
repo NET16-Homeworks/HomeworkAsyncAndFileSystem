@@ -1,0 +1,28 @@
+﻿@model IOrderedEnumerable<TeamModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>TeamNumber</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Price</th>
+            <th>CreateDate</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model)
+        {
+            var teamNumber = team.TeamNumber;
+                <tr>
+                    <td>@team.TeamNumber</td>
+                    <td>@team.Name</td>
+                    <td>@team.Age</td>
+                    <td>@team.Price</td>
+                    <td>@team.CreateDate</td>
+                    <td>@Html.ActionLink("Delete this team","DeleteTeam",new{teamNumber})</td>
+                </tr>
+        }
+    </tbody>
+</table>
