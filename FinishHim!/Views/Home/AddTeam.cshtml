@@ -1,0 +1,30 @@
+﻿@model TeamModel
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.LabelFor(q => q.TeamNumber)
+    ;
+    @Html.TextBoxFor(q => q.TeamNumber)
+    ;
+        <br />
+    @Html.LabelFor(q => q.Name)
+    ;
+    @Html.TextBoxFor(q => q.Name)
+    ;
+        <br />
+    @Html.LabelFor(q => q.Price)
+    ;
+    @Html.TextBoxFor(q=>q.Price)
+    ;
+        <br />
+    @Html.LabelFor(q => q.Age)
+    ;
+    @Html.TextBoxFor(q=>q.Age)
+    ;
+        <br />
+    @Html.LabelFor(q => q.CreateDate)
+    ;
+    @Html.TextBoxFor(q => q.CreateDate)
+    ;
+        <br />
+        <button type="submit">Enter</button>
+}

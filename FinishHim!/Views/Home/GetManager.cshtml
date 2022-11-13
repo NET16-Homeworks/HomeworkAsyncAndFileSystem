@@ -1,0 +1,37 @@
+﻿@model IOrderedEnumerable<ManagerModel>
+
+<table class="table">
+    <thead>
+        <tr>
+          <th>TeamId</th>
+                    <th>TeamPrice</th>
+                    <th>TeamNumber</th>
+                    <th>TeamName</th>
+                    <th>TeamAge</th>
+                    <th>PlayerTeamNumber</th>
+                    <th>PlayerAge</th>
+                    <th>PlayerFirstName</th>
+                    <th>PlayerLastName</th>
+                    <th>PlayerEmail</th>
+                    <th>CreateDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var manager in Model)
+        {
+                <tr>
+                    <td>@manager.TeamId</td>
+                    <td>@manager.TeamPrice</td>
+                    <td>@manager.TeamNumber</td>
+                    <td>@manager.TeamName</td>
+                    <td>@manager.TeamAge</td>
+                    <td>@manager.PlayerTeamNumber</td>
+                    <td>@manager.PlayerAge</td>
+                    <td>@manager.PlayerFirstName</td>
+                    <td>@manager.PlayerLastName</td>
+                    <td>@manager.PlayerEmail</td>
+                    <td>@manager.CreateDate</td>
+                </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PlayerModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>PlayerId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>PlayerTeamNumber</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var player in Model)
+        {
+                <tr>
+                    <td>@player.PlayerId</td>
+                    <td>@player.FirstName</td>
+                    <td>@player.LastName</td>
+                    <td>@player.Email</td>
+                    <td>@player.Age</td>
+                    <td>@player.PlayerTeamNumber</td>
+                    <td>@Html.ActionLink("Delete this Player","DeletePlayer",new{player.PlayerId})</td>
+                </tr>
+        }
+    </tbody>
+</table>
