@@ -1,0 +1,27 @@
+[
+  {
+    "Date": "2022-11-17T01:23:27.8556058+03:00",
+    "Action": "/",
+    "Controller": "UserController"
+  },
+  {
+    "Date": "2022-11-17T01:23:29.7088249+03:00",
+    "Action": "/User/GetUsers",
+    "Controller": "UserController"
+  },
+  {
+    "Date": "2022-11-17T01:23:31.3300009+03:00",
+    "Action": "/",
+    "Controller": "UserController"
+  },
+  {
+    "Date": "2022-11-17T01:23:32.1361984+03:00",
+    "Action": "/User/GetAddresses",
+    "Controller": "UserController"
+  },
+  {
+    "Date": "2022-11-17T01:23:33.202474+03:00",
+    "Action": "/",
+    "Controller": "UserController"
+  }
+]

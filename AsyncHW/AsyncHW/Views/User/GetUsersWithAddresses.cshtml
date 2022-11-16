@@ -1,0 +1,49 @@
+﻿@model IEnumerable<UserWithAddressDTOViewModel>
+
+@{
+    ViewData["Title"] = "UserWithAddressesPage";
+}
+
+<h1>UsersWithTheirAddresses</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>UserId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>BirthDate</th>
+            <th>AddressId</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>HouseNumber</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(count++)</td>
+                <td>@item.UserId</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.BirthDate</td>
+                <td>@item.AddressId</td>
+                <td>@item.City</td>
+                <td>@item.Street</td>
+                <td>@item.HouseNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br>
+
+@{
+    await Html.RenderPartialAsync("UserActions");
+}
