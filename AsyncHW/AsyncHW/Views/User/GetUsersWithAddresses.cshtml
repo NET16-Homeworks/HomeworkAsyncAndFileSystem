@@ -7,8 +7,9 @@
 <h1>UsersWithTheirAddresses</h1>
 
 <table class="table">
-    <thead>
+    <thead class="thead-dark">
         <tr>
+            <th>#</th>
             <th>UserId</th>
             <th>FirstName</th>
             <th>LastName</th>
@@ -21,9 +22,13 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            int count = 1;
+        }
         @foreach (var item in Model)
         {
             <tr>
+                <td>@(count++)</td>
                 <td>@item.UserId</td>
                 <td>@item.FirstName</td>
                 <td>@item.LastName</td>
@@ -37,3 +42,8 @@
         }
     </tbody>
 </table>
+<br>
+
+@{
+    await Html.RenderPartialAsync("UserActions");
+}

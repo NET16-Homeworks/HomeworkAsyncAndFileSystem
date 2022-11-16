@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Filters\" />
+    <PackageReference Include="AutoBogus" Version="2.13.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoBogus" Version="2.13.1" />
+    <ProjectReference Include="..\DI.Entities\DI.Entities.csproj" />
+    <ProjectReference Include="..\DI.Exceptions\DI.Exceptions.csproj" />
+    <ProjectReference Include="..\DI.UserInFile\DI.UserInFile.csproj" />
+    <ProjectReference Include="..\RequestLogger\RequestLogger.csproj" />
   </ItemGroup>
 
   <ItemGroup>

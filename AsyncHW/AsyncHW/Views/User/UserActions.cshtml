@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "UserActionsPage";
+}
+
+<div class="row">
+    <div class="col">
+        <a href="@Url.Action("GetUsers")" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GetUsers</a>
+    </div>
+    <div class="col">
+        <a href="@Url.Action("GetAddresses")" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GetAddresses</a>
+    </div>
+    <div class="col">
+        <a href="@Url.Action("GetUsersWithAddresses")" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">GetUsersWithAddresses</a>
+    </div>
+    <div class="col">
+        <a href="@Url.Action("AddUser")" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">AddUser</a>
+    </div>
+    <div class="col">
+        <a href="@Url.Action("AddAddress")" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">AddAddress</a>
+    </div>
+</div>

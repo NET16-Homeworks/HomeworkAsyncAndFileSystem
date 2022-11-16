@@ -1,3 +1,8 @@
+using AsyncHW.Filters;
+using DI.UserInFile.Extensions;
+using Microsoft.Extensions.Options;
+using RequestLogger.Extensions;
+
 namespace AsyncHW
 {
     public class Program
@@ -7,7 +12,13 @@ namespace AsyncHW
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add<RequestLogFilter>();
+            });
+
+            builder.Services.AddUsersManagementByFile();
+            builder.Services.AddUrlLogger();
 
             var app = builder.Build();
 
@@ -28,7 +39,7 @@ namespace AsyncHW
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Index}/{id?}");
 
             app.Run();
         }

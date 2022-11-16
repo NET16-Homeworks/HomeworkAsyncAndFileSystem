@@ -118,5 +118,17 @@
     "City": "Lake Aliceburgh",
     "Street": "912 Heidenreich Locks",
     "HouseNumber": "04763"
+  },
+  {
+    "AddressId": "d0430688-1316-4afd-8601-19e73b89b344",
+    "City": "Minsk",
+    "Street": "Kazintsa",
+    "HouseNumber": "120"
+  },
+  {
+    "AddressId": "1fd3e132-4046-4d0b-b58d-0519a405d93a",
+    "City": "Minsk",
+    "Street": "Pushkina",
+    "HouseNumber": "85"
   }
 ]
