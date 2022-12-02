@@ -1,0 +1,26 @@
+[
+  {
+    "FirstName": "Pavel",
+    "LastName": "Levanok",
+    "Email": "levanok@gmail.com",
+    "CarNumber": 8536
+  },
+  {
+    "FirstName": "Dima",
+    "LastName": "Korotkevich",
+    "Email": "dima@gmail.com",
+    "CarNumber": 1953
+  },
+  {
+    "FirstName": "Tanya",
+    "LastName": "Kislova",
+    "Email": "kislova@gmail.com",
+    "CarNumber": 2052
+  },
+  {
+    "FirstName": "Alex",
+    "LastName": "Petrov",
+    "Email": "Petrov@gmail.com",
+    "CarNumber": 1111
+  },{"FirstName":"Vanos","LastName":"Petrov","Email":"petrov@gmail.com","CarNumber":1234},{"FirstName":"Alexey","LastName":"Sifon","Email":"frf@mail.com","CarNumber":7896}
+]

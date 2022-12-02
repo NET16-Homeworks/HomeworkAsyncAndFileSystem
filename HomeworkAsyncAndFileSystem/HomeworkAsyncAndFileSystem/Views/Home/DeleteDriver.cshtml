@@ -1,0 +1,18 @@
+﻿@model int
+@{
+    ViewData["Title"] = "DeleteDriver";
+}
+
+<h1>Delete Driver</h1>
+<h3>Введите номер водителя для удаления:</h3>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+<p>
+@Html.TextBox("index")
+</p>
+<button type="submit">Delete</button>
+}
+<br>
+@Html.Partial("_GoBack")
+
