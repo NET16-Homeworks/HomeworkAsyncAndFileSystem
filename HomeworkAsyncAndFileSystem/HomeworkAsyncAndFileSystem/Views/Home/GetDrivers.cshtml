@@ -1,0 +1,30 @@
+﻿@model IEnumerable<DriverModel>
+
+@{
+    ViewData["Title"] = "GetDrivers";
+}
+
+<h1>All Drivers:</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Car number</th>                                 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var driver in Model)
+        {
+            <tr>
+                <td>@driver.FirstName</td>
+                <td>@driver.LastName</td>
+                <td>@driver.Email</td>
+                <td>@driver.CarNumber</td>                
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.Partial("_GoBack")

@@ -1,0 +1,40 @@
+﻿@model CarModel;
+
+@{
+    ViewData["Title"] = "Add new Car";
+}
+
+<h1>Add new Car</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(car => car.Name)
+        @Html.TextBoxFor(car => car.Name)
+    </p>
+    <p>
+        @Html.DisplayNameFor(car => car.Model)
+        @Html.TextBoxFor(car => car.Model)
+    </p>
+    <p>
+        @Html.DisplayNameFor(car => car.Year)
+        @Html.TextBoxFor(car => car.Year)
+    </p>
+    <p>
+        @Html.DisplayNameFor(car => car.Type)
+        @Html.TextBoxFor(car => car.Type)
+    </p>
+    <p>
+        @Html.DisplayNameFor(car => car.EngineVolume)
+        @Html.TextBoxFor(car => car.EngineVolume)
+    </p>
+    <p>
+        @Html.DisplayNameFor(car => car.Number)
+        @Html.TextBoxFor(car => car.Number)
+    </p>
+    
+    <button type="submit">Add car</button>
+}
+<br>
+@Html.Partial("_GoBack")
+

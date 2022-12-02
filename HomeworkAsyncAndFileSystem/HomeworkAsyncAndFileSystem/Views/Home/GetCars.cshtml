@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CarModel>
+
+@{
+    ViewData["Title"] = "GetCars";
+}
+
+<h1>All Cars:</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Year</th>
+            <th>Engine Volume</th>  
+            <th>Car Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cars in Model)
+        {
+            <tr>
+                <td>@cars.Name</td>
+                <td>@cars.Model</td>
+                <td>@cars.Type</td>
+                <td>@cars.Year</td> 
+                <td>@cars.EngineVolume</td> 
+                <td>@cars.Number</td> 
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.Partial("_GoBack")
+

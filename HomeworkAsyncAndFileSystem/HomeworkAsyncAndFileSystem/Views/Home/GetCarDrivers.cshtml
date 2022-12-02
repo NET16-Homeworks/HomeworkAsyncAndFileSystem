@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CarDriverModel>
+@{
+    ViewData["Title"] = "GetCarDrivers";
+}
+
+<h1>GetCarDrivers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car number</th>
+            <th>Car</th>
+            <th>Model</th>
+            <th>Owner FirsName</th>
+            <th>Owner LastName</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CarNumber</td>
+                <td>@item.CarName</td>
+                <td>@item.CarModel</td>
+                <td>@item.DriverFirstName </td> 
+                <td>@item.DriverLastName</td>                 
+            </tr>
+        }
+    </tbody>
+</table>
+

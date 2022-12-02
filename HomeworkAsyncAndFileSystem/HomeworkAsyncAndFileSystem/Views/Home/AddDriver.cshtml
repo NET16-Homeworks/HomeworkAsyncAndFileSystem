@@ -1,0 +1,32 @@
+﻿@model DriverModel;
+
+@{
+    ViewData["Title"] = "Add new Driver";
+}
+
+<h1>Add new Driver</h1>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>
+        @Html.DisplayNameFor(driver => driver.FirstName)
+        @Html.TextBoxFor(driver => driver.FirstName)
+    </p>
+    <p>
+        @Html.DisplayNameFor(driver => driver.LastName)
+        @Html.TextBoxFor(driver => driver.LastName)
+    </p>
+    <p>
+        @Html.DisplayNameFor(driver => driver.Email)
+        @Html.TextBoxFor(driver => driver.Email)
+    </p>
+    <p>
+        @Html.DisplayNameFor(driver => driver.CarNumber)
+        @Html.TextBoxFor(driver => driver.CarNumber)
+    </p>
+    
+    <button type="submit">Add Driver</button>
+}
+<br>
+@Html.Partial("_GoBack")
+
